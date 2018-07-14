@@ -1,7 +1,7 @@
 package my.av.test.task.rest;
 
 import my.av.test.task.rest.api.Response;
-import my.av.test.task.service.AuthorService;
+import my.av.test.task.service.GenreService;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.SortDefault;
@@ -11,21 +11,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("authors")
-public class AuthorController {
-    private final AuthorService authorService;
+@RequestMapping("genres")
+public class GenreController {
+    private final GenreService genreService;
 
-    public AuthorController(AuthorService authorService) {
-        this.authorService = authorService;
+    public GenreController(GenreService genreService) {
+        this.genreService = genreService;
     }
 
     @GetMapping
-    public Response getAllAuthors(@SortDefault(sort = "creationDate", direction = Sort.Direction.DESC) Pageable pageable) {
-        return authorService.findAll(pageable);
+    public Response getAllGenre(@SortDefault(sort = "creationDate", direction = Sort.Direction.DESC) Pageable pageable) {
+        return genreService.findAll(pageable);
     }
 
     @GetMapping("{id}")
-    public Response getAuthorByID(@PathVariable Long id) {
-        return authorService.findByID(id);
+    protected Response getGenreByID(@PathVariable Long id) {
+        return genreService.findByID(id);
     }
 }
