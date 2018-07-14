@@ -1,5 +1,6 @@
 package my.av.test.task.service;
 
+import my.av.test.task.domain.internal.CustomPage;
 import my.av.test.task.domain.internal.MyEntity;
 import my.av.test.task.repository.MyRepository;
 import my.av.test.task.rest.api.Response;
@@ -20,7 +21,7 @@ public abstract class CrudService<REP extends MyRepository<? extends MyEntity<Lo
     }
 
     public Response findAll(Pageable pageable) {
-        return Response.of(repository.findAll(pageable));
+        return Response.of(CustomPage.of(repository.findAll(pageable)));
     }
 
     public Response findAll(Sort sort) {

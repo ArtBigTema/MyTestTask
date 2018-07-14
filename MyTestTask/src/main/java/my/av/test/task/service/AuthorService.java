@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Collections;
+
 @Service
 @Transactional
 public class AuthorService extends CrudService<AuthorRepository> {
@@ -30,6 +32,7 @@ public class AuthorService extends CrudService<AuthorRepository> {
 
         author.setFullName(fullName);
         author.setBirthdate(authorDTO.getBirthdate());
+        author.setBooks(Collections.emptyList());
 
         return Response.of(authorRepository.save(author));
     }

@@ -1,12 +1,15 @@
 package my.av.test.task.rest.api;
 
+import com.fasterxml.jackson.annotation.JsonView;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.ToString;
+import my.av.test.task.util.JsonViews;
 
 @ToString
 @Data
 @AllArgsConstructor
+@JsonView(JsonViews.Base.class)
 public class Response<T> {
     private T data;
 

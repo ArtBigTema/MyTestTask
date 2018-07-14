@@ -1,6 +1,8 @@
 package my.av.test.task.domain.internal;
 
+import com.fasterxml.jackson.annotation.JsonView;
 import lombok.*;
+import my.av.test.task.util.JsonViews;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -16,6 +18,7 @@ import java.time.LocalDateTime;
 @MappedSuperclass
 @Data
 @EntityListeners(AuditingEntityListener.class)
+@JsonView(JsonViews.Base.class)
 public class StandardEntity extends MyEntity<Long> {
 
     @Column(nullable = false, updatable = false)

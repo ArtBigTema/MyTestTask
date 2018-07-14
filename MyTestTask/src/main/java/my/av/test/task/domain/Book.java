@@ -1,10 +1,12 @@
 package my.av.test.task.domain;
 
+import com.fasterxml.jackson.annotation.JsonView;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 import my.av.test.task.domain.internal.StandardEntity;
+import my.av.test.task.util.JsonViews;
 import org.hibernate.validator.constraints.ISBN;
 
 import javax.persistence.Entity;
@@ -16,10 +18,12 @@ import javax.validation.constraints.NotNull;
 @Data
 @ToString(callSuper = true)
 @NoArgsConstructor
+@JsonView(JsonViews.BookView.class)
 public class Book extends StandardEntity {
 
     @NotNull
     @ISBN
+    @JsonView(JsonViews.AuthorView.class)
     private String isbn;
 
     @NotNull
