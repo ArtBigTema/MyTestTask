@@ -1,9 +1,6 @@
 package my.av.test.task.domain.internal;
 
-import lombok.AccessLevel;
-import lombok.Data;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -11,6 +8,7 @@ import java.io.Serializable;
 @ToString
 @MappedSuperclass
 @Data
+@EqualsAndHashCode
 public class MyEntity<V> implements Serializable {
 
     @Id

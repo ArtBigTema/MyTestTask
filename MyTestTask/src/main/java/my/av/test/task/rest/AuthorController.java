@@ -1,14 +1,14 @@
 package my.av.test.task.rest;
 
 import my.av.test.task.rest.api.Response;
+import my.av.test.task.rest.dto.AuthorDTO;
 import my.av.test.task.service.AuthorService;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.SortDefault;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 @RestController
 @RequestMapping("authors")
@@ -27,5 +27,10 @@ public class AuthorController {
     @GetMapping("{id}")
     public Response getAuthorByID(@PathVariable Long id) {
         return authorService.findByID(id);
+    }
+
+    @PostMapping
+    public Response createAuthor(@RequestBody @Valid AuthorDTO authorDTO) {
+        return authorService.createAuthor(authorDTO);
     }
 }

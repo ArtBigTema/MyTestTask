@@ -1,14 +1,14 @@
 package my.av.test.task.rest;
 
 import my.av.test.task.rest.api.Response;
+import my.av.test.task.rest.dto.GenreDTO;
 import my.av.test.task.service.GenreService;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.SortDefault;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 @RestController
 @RequestMapping("genres")
@@ -25,7 +25,12 @@ public class GenreController {
     }
 
     @GetMapping("{id}")
-    protected Response getGenreByID(@PathVariable Long id) {
+    public Response getGenreByID(@PathVariable Long id) {
         return genreService.findByID(id);
+    }
+
+    @PostMapping
+    public Response createGenre(@RequestBody @Valid GenreDTO genreDTO) {
+        return genreService.createGenre(genreDTO);
     }
 }

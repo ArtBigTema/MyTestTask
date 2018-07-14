@@ -1,8 +1,8 @@
 package my.av.test.task.repository;
 
-import my.av.test.task.domain.Author;
+import my.av.test.task.domain.Genre;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface GenreRepository extends MyRepository<Author> {
+public interface GenreRepository extends MyRepository<Genre> {
 }

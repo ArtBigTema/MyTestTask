@@ -12,7 +12,7 @@ public abstract class CrudService<REP extends MyRepository<? extends MyEntity<Lo
     private REP repository;
 
     private Supplier<RuntimeException> getExceptionSupplier(Long id) {
-        return () -> new RuntimeException(String.format("Сущность с ID: %d не существует.", id));
+        return () -> new RuntimeException(String.format("Entity with ID: %d not found.", id));
     }
 
     protected CrudService(REP repository) {
