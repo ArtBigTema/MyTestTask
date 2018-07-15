@@ -53,4 +53,9 @@ public class AuthorController {
                                 @RequestBody AuthorDTO authorDTO) {
         return authorService.patchAuthor(id, authorDTO);
     }
+
+    @DeleteMapping("{id}")
+    public Response deleteAuthor(@PathVariable Long id) {
+        return authorService.delete(id);
+    }
 }

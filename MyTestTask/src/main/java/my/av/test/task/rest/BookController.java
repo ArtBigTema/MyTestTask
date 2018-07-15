@@ -42,14 +42,19 @@ public class BookController {
     @PutMapping("{id}")
     @JsonView(JsonViews.BookView.class)
     public Response modifyBook(@PathVariable Long id,
-                                 @RequestBody @Valid BookDTO bookDTO) {
+                               @RequestBody @Valid BookDTO bookDTO) {
         return bookService.replaceBook(id, bookDTO);
     }
 
     @PatchMapping("{id}")
     @JsonView(JsonViews.BookView.class)
     public Response patchBook(@PathVariable Long id,
-                                @RequestBody BookDTO bookDTO) {
+                              @RequestBody BookDTO bookDTO) {
         return bookService.patchBook(id, bookDTO);
+    }
+
+    @DeleteMapping("{id}")
+    public Response deleteBook(@PathVariable Long id) {
+        return bookService.delete(id);
     }
 }

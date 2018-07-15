@@ -52,4 +52,9 @@ public class GenreController {
                                 @RequestBody GenreDTO genreDTO) {//здесь нужен @Valid т.к. одно поле
         return genreService.replaceGenre(id, genreDTO);
     }
+
+    @DeleteMapping("{id}")
+    public Response deleteGenre(@PathVariable Long id) {
+        return genreService.delete(id);
+    }
 }

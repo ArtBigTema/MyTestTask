@@ -9,7 +9,9 @@ import lombok.ToString;
 import my.av.test.task.domain.internal.FullName;
 import my.av.test.task.domain.internal.StandardEntity;
 import my.av.test.task.util.JsonViews;
+import org.hibernate.annotations.Where;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
@@ -22,6 +24,7 @@ import java.util.List;
 @ToString(callSuper = true, exclude = "books")
 @NoArgsConstructor
 @JsonView(JsonViews.AuthorView.class)
+@Where(clause = "deleted=false")
 public class Author extends StandardEntity {
 
     @NotNull
@@ -32,6 +35,6 @@ public class Author extends StandardEntity {
     @NotNull
     private LocalDate birthdate;
 
-    @OneToMany(mappedBy = "author")
+    @OneToMany(mappedBy = "author", cascade = CascadeType.ALL)
     private List<Book> books;
 }

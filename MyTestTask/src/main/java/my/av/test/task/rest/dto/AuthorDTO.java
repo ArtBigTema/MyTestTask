@@ -21,5 +21,4 @@ public class AuthorDTO {
 
     @NotNull
     private LocalDate birthdate;
-
 }

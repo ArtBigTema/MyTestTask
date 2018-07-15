@@ -3,6 +3,7 @@ package my.av.test.task.domain.internal;
 import com.fasterxml.jackson.annotation.JsonView;
 import lombok.*;
 import my.av.test.task.util.JsonViews;
+import org.hibernate.annotations.Where;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -33,4 +34,8 @@ public class StandardEntity extends MyEntity<Long> {
     @LastModifiedDate
     @Setter(AccessLevel.NONE)
     protected LocalDateTime modificationDate;
+
+    public void markDeleted() {
+        deleted = true;
+    }
 }

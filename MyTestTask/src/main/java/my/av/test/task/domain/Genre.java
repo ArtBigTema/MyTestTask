@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonView;
 import lombok.*;
 import my.av.test.task.domain.internal.StandardEntity;
 import my.av.test.task.util.JsonViews;
+import org.hibernate.annotations.Where;
 
 import javax.persistence.Entity;
 import javax.validation.constraints.NotBlank;
@@ -15,6 +16,7 @@ import javax.validation.constraints.NotBlank;
 @NoArgsConstructor
 @Data
 @JsonView(JsonViews.GenreView.class)
+@Where(clause = "deleted=false")
 public class Genre extends StandardEntity {
 
     @NotBlank

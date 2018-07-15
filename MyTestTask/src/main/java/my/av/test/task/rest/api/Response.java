@@ -16,4 +16,8 @@ public class Response<T> {
     public static <T> Response of(T data) {
         return new Response<>(data);
     }
+
+    public static Response ok() {
+        return Response.of("ok");
+    }
 }
