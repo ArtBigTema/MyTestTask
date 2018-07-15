@@ -3,6 +3,7 @@ package my.av.test.task.rest;
 import com.fasterxml.jackson.annotation.JsonView;
 import my.av.test.task.rest.api.Response;
 import my.av.test.task.rest.dto.AuthorDTO;
+import my.av.test.task.rest.dto.BookDTO;
 import my.av.test.task.service.AuthorService;
 import my.av.test.task.util.JsonViews;
 import org.springframework.data.domain.Pageable;
@@ -37,5 +38,19 @@ public class AuthorController {
     @JsonView(JsonViews.AuthorView.class)
     public Response createAuthor(@RequestBody @Valid AuthorDTO authorDTO) {
         return authorService.createAuthor(authorDTO);
+    }
+
+    @PutMapping("{id}")
+    @JsonView(JsonViews.AuthorView.class)
+    public Response modifyAuthor(@PathVariable Long id,
+                                 @RequestBody @Valid AuthorDTO authorDTO) {
+        return authorService.replaceAuthor(id, authorDTO);
+    }
+
+    @PatchMapping("{id}")
+    @JsonView(JsonViews.AuthorView.class)
+    public Response patchAuthor(@PathVariable Long id,
+                                @RequestBody AuthorDTO authorDTO) {
+        return authorService.patchAuthor(id, authorDTO);
     }
 }

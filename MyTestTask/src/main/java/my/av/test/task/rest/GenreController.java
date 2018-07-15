@@ -38,4 +38,18 @@ public class GenreController {
     public Response createGenre(@RequestBody @Valid GenreDTO genreDTO) {
         return genreService.createGenre(genreDTO);
     }
+
+    @PutMapping("{id}")
+    @JsonView(JsonViews.GenreView.class)
+    public Response modifyGenre(@PathVariable Long id,
+                                 @RequestBody @Valid GenreDTO genreDTO) {
+        return genreService.replaceGenre(id, genreDTO);
+    }
+
+    @PatchMapping("{id}")
+    @JsonView(JsonViews.GenreView.class)
+    public Response patchGenre(@PathVariable Long id,
+                                @RequestBody GenreDTO genreDTO) {//здесь нужен @Valid т.к. одно поле
+        return genreService.replaceGenre(id, genreDTO);
+    }
 }

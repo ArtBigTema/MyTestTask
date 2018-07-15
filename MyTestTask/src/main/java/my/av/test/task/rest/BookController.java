@@ -38,4 +38,18 @@ public class BookController {
     public Response createBook(@RequestBody @Valid BookDTO bookDTO) {
         return bookService.createBook(bookDTO);
     }
+
+    @PutMapping("{id}")
+    @JsonView(JsonViews.BookView.class)
+    public Response modifyBook(@PathVariable Long id,
+                                 @RequestBody @Valid BookDTO bookDTO) {
+        return bookService.replaceBook(id, bookDTO);
+    }
+
+    @PatchMapping("{id}")
+    @JsonView(JsonViews.BookView.class)
+    public Response patchBook(@PathVariable Long id,
+                                @RequestBody BookDTO bookDTO) {
+        return bookService.patchBook(id, bookDTO);
+    }
 }

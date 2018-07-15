@@ -1,10 +1,7 @@
 package my.av.test.task.domain;
 
 import com.fasterxml.jackson.annotation.JsonView;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 import my.av.test.task.domain.internal.StandardEntity;
 import my.av.test.task.util.JsonViews;
 
@@ -16,6 +13,7 @@ import javax.validation.constraints.NotBlank;
 @ToString(callSuper = true)
 @AllArgsConstructor
 @NoArgsConstructor
+@Data
 @JsonView(JsonViews.GenreView.class)
 public class Genre extends StandardEntity {
 
