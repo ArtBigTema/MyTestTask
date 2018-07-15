@@ -20,6 +20,6 @@ import javax.validation.constraints.NotBlank;
 public class Genre extends StandardEntity {
 
     @NotBlank
-    @JsonView(JsonViews.BookView.class)
+    @JsonView(JsonViews.Base.class)
     private String description;
 }

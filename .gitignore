@@ -27,7 +27,6 @@ hs_err_pid*
 *.iws
 .idea
 MyTestTask/.idea/
-MyTestTask/src/main/resources/application.yml
 MyTestTask/transaction-logs/
 MyTestTask/target/classes/application.yml
 MyTestTask/target/

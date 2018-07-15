@@ -1,0 +1,13 @@
+server:
+# - порт, по которому будет доступно приложение - #
+  port: 8080
+  servlet:
+# - контекстный путь, по которому будет доступно приложение - #
+    contextPath: "/app"
+
+spring:
+# - in memory db - #
+  datasource:
+    url: jdbc:hsqldb:file:target/testdb;sql:syntax_ora=true
+    username: SA
+    password: SA
