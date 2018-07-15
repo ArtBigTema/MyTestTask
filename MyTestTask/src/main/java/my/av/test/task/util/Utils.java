@@ -18,9 +18,6 @@ public class Utils {
     }
 
     public Supplier<EntityNotFoundException> entityNotFound(String message) {
-        return () -> {
-            log.warn("{}", message);
-            return new EntityNotFoundException(message);
-        };
+        return () -> new EntityNotFoundException(message);
     }
 }

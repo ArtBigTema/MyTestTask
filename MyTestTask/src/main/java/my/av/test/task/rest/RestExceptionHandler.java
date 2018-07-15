@@ -1,6 +1,7 @@
-package my.av.test.task.rest.api;
+package my.av.test.task.rest;
 
 import lombok.extern.slf4j.Slf4j;
+import my.av.test.task.rest.api.Response;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.FieldError;
