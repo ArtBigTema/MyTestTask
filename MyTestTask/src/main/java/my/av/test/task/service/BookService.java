@@ -20,7 +20,6 @@ import java.util.Objects;
 
 import static my.av.test.task.util.StringConstant.*;
 
-
 @Service
 @Transactional
 public class BookService extends CrudService<BookRepository> {

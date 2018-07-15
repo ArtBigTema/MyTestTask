@@ -12,7 +12,7 @@ import java.io.Serializable;
 @Data
 @EqualsAndHashCode
 @JsonView(JsonViews.Base.class)
-public class MyEntity<V> implements Serializable {
+public class IdEntity<V> implements Serializable {
 
     @Id
     @Setter(AccessLevel.NONE)

@@ -25,7 +25,7 @@ public class Book extends StandardEntity {
 
     @NotNull
     @ISBN
-    @JsonView(JsonViews.AuthorView.class)
+    @JsonView(JsonViews.Base.class)
     private String isbn;
 
     @NotNull

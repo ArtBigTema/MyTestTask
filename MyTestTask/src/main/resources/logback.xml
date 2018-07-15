@@ -21,16 +21,18 @@
         </encoder>
     </appender>
 
-    <logger name="com.gost_group" level="debug"/>
+    <logger name="av.test.task" level="debug"/>
 
     <logger name="org.springframework" level="info">
         <appender-ref ref="STDOUT" />
     </logger>
 
+    <logger name="org.springframework.web.filter.CommonsRequestLoggingFilter"
+            level="DEBUG"/>
+
     <root level="info">
         <appender-ref ref="DEFAULT"/>
     </root>
-
 
 
 </configuration>

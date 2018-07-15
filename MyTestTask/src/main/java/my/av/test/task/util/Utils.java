@@ -1,9 +1,10 @@
 package my.av.test.task.util;
 
 import lombok.experimental.UtilityClass;
-import my.av.test.task.domain.internal.MyEntity;
+import my.av.test.task.domain.internal.IdEntity;
 import org.springframework.data.repository.CrudRepository;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.function.Supplier;
 
 import static java.lang.String.format;
@@ -12,14 +13,14 @@ import static java.lang.String.format;
 @UtilityClass
 public class Utils {
 
-    public <E extends MyEntity<Long>> E getEntity(CrudRepository<E, Long> repository, Long id, String msg) {
+    public <E extends IdEntity<Long>> E getEntity(CrudRepository<E, Long> repository, Long id, String msg) {
         return repository.findById(id).orElseThrow(entityNotFound(format(msg, id)));
     }
 
-    public Supplier<RuntimeException> entityNotFound(String message) {
+    public Supplier<EntityNotFoundException> entityNotFound(String message) {
         return () -> {
             log.warn("{}", message);
-            return new RuntimeException(message);
+            return new EntityNotFoundException(message);
         };
     }
 }
